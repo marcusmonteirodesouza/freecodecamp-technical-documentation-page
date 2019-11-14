@@ -6,10 +6,13 @@ const fetchSnippets = async () => {
       const title = snippetData.title
       const description = snippetData.attributes.text
       const codeBlock = snippetData.attributes.codeBlocks.es6
+      const tags = snippetData.attributes.tags
+
       return {
         title,
         description,
-        codeBlock
+        codeBlock,
+        tags
       }
     })
   } catch (err) {
@@ -26,7 +29,7 @@ const appendSnippet = (navLinkList, elem, snippetData) => {
   navLink.className = 'link nav-link'
   navLink.textContent = snippetData.title
   const li = document.createElement('li')
-  li.className = 'mb2'
+  li.className = 'mb2 bb'
   li.appendChild(navLink)
   navLinkList.appendChild(li)
 
@@ -55,6 +58,14 @@ const appendSnippet = (navLinkList, elem, snippetData) => {
 
   description.textContent = snippetData.description
   section.appendChild(description)
+
+  const tagsUl = document.createElement('ul')
+  snippetData.tags.forEach(tag => {
+    const li = document.createElement('li')
+    li.textContent = tag
+    tagsUl.appendChild(li)
+  })
+  section.appendChild(tagsUl)
 
   elem.appendChild(section)
 }

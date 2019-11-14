@@ -13,6 +13,10 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(100vw, 1fr));
 }
 
+.gap {
+  gap: 0.5em;
+}
+
 .pre-wrap {
   white-space: pre-wrap;
 }
