@@ -22,7 +22,9 @@
     "standard": "^14.3.1"
   },
   "standard": {
-    "globals": []
+    "globals": [
+      "fetch"
+    ]
   },
   "husky": {
     "hooks": {
